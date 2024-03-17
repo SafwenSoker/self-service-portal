@@ -13,6 +13,7 @@ public class DayOffRequestMapper {
     public static DayOffRequestDto toDto(DayoffRequest dayoffRequest) {
         return DayOffRequestDto.builder().id(dayoffRequest.getId())
                 .userDto(KeycloakService.toDto(dayoffRequest.getUserId()))
+                .status(dayoffRequest.getStatus())
                 .reason(dayoffRequest.getReason())
                 .startDate(dayoffRequest.getStartDate())
                 .endDate(dayoffRequest.getEndDate())
@@ -26,6 +27,7 @@ public class DayOffRequestMapper {
                 .reason(dayOffRequestDto.getReason())
                 .startDate(dayOffRequestDto.getStartDate())
                 .endDate(dayOffRequestDto.getEndDate())
+                .status(dayOffRequestDto.getStatus())
                 .daysoffType(dayOffRequestDto.getDaysoffType()).build();
         dayoffRequest.setId(dayOffRequestDto.getId());
         return dayoffRequest;

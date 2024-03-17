@@ -57,6 +57,11 @@ public class SelfServicePortalImpl implements IRequestDayOffService, IUserHrInfo
                     dayOffRequestDto.getEndDate());
         }
 
+        if (Objects.nonNull(dayOffRequestDto.getStatus())) {
+            request.setStatus(
+                    dayOffRequestDto.getStatus());
+        }
+
         return DayOffRequestMapper.toDto(repository.save(request));
     }
 
